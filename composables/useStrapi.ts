@@ -1,14 +1,10 @@
 import axios from "axios";
 
-export const useStrapi = async (method: string, url: string, body: Object) => {
-  const strapi = await axios({
-    method,
+export const fetchApi = async (method: string, url: string, body?: Object) => {  
+  const fetch = await axios({
+    url: url,
     data: body,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    baseURL: "http://localhost:1337,",
-    url,
-  });
-  return strapi;
+  })
+  console.log('fetch', fetch)
+  return fetch;
 };
